@@ -3,20 +3,24 @@ using Stores.Shared.Entities;
 
 namespace Stores.API.Data
 {
-    public class DataContext: DbContext
+    public class DataContext: DbContext //Para implementarn con la DataContext  que tiene C# internamente
     {
+        //Constructor de la clase DataContext
         public DataContext(DbContextOptions<DataContext> options) : base(options) { 
         }
-
+        
+        //Instrucción para señalar una tabla (DbSet)
         public DbSet<Country> Countries { get; set; }
+
+        //Permite mandar la entidad 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
+
+        }
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder) 
-    {
-
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Country>().HasIndex();
-
-    }
+    
 
 }
