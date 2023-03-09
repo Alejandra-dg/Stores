@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Stores.Shared.Entities;
-
+// Esta clase debe estar en todos los proyectos
 namespace Stores.API.Data
 {
     public class DataContext: DbContext  //Para implementarn con la DataContext  que tiene C# internamente

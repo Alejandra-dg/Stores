@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Stores.Shared.Entities
 {
@@ -12,21 +13,21 @@ namespace Stores.Shared.Entities
         public int Id { get; set; }
 
         //Serie de restricciones para el nombre:
-            //1) Campo predeterminado
-            [Display(Name = "Pais")]
+        //1) Campo predeterminado
+        [Display(Name = "Pais")]
 
 
-            //2) Restringir que el país solo permita un número de caracteres
-            // (tamaño máximo, error)
-            [MaxLength(20, ErrorMessage = "El país {0} debe contener máximo {1} caracteres.")]
+        //2) Restringir que el país solo permita un número de caracteres
+        // (tamaño máximo, error)
+        [MaxLength(20, ErrorMessage = "El país {0} debe contener máximo {1} caracteres.")]
 
 
-            //3) Requerido o campo obligatorio
-            [Required(ErrorMessage ="El pais {0} es obligatorio")]
-        
+        //3) Requerido o campo obligatorio
+        [Required(ErrorMessage = "El pais {0} es obligatorio")]
+
         public string Name { get; set; } = null!;
 
-        
+
 
     }
 }
