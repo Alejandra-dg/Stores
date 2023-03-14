@@ -15,6 +15,7 @@ namespace Stores.API.Data
         //Permite mandar la entidad 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // los paises no se repiten 
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
 
